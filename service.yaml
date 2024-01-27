@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-user-api-service
+spec:
+  selector:
+    app: flask-user-api
+  ports:
+  - protocol: TCP
+    port: 80  # Dış dünyadan uygulamanıza erişim için kullanılacak port
+    targetPort: 5000  # Uygulamanızın içinde çalıştığı port
+  type: LoadBalancer

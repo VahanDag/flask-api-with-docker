@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-user-api-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flask-user-api
+  template:
+    metadata:
+      labels:
+        app: flask-user-api
+    spec:
+      containers:
+      - name: flask-user-api
+        image: vahandag/flask_user_api:latest  # Docker Hub kullanıcı adınız ve image tag'ınız ile değiştirin
+        ports:
+        - containerPort: 5000
